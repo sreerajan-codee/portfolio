@@ -444,6 +444,7 @@ function FloatingCodeParticles() {
 // MAIN 3D EXPERIENCE CONTAINER
 export default function Scene3D() {
   const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   // Skill planets dataset
   const planets = [
@@ -456,9 +457,13 @@ export default function Scene3D() {
   ];
 
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-auto">
+    <div 
+      ref={containerRef} 
+      className="absolute inset-0 w-full h-full pointer-events-auto"
+      style={{ touchAction: "pan-y" }}
+    >
       {/* 3D Canvas Scene */}
-      <Canvas eventSource={typeof document !== "undefined" ? document.body : undefined}>
+      <Canvas eventSource={containerRef as any} eventPrefix="client">
         <PerspectiveCamera makeDefault position={[0, 1.8, 5.5]} fov={60} />
         
         {/* Environmental Lights */}
