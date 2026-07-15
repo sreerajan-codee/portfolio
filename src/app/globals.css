@@ -37,10 +37,20 @@
 }
 
 /* Custom resets & base elements */
+html {
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
-  overflow-x: hidden;
+  height: auto !important;
+  min-height: 100% !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
